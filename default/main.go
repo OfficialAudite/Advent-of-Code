@@ -4,9 +4,12 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
+	// start timer
+	start := time.Now()
 
 	// read file
 	readFile, err := os.Open(`.\1\input.txt`)
@@ -34,4 +37,8 @@ func main() {
 
 	// close file
 	readFile.Close()
+
+	// print time
+	duration := time.Since(start)
+	fmt.Println(duration)
 }
