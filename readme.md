@@ -22,7 +22,7 @@ To run any of the solutions, follow these steps:
 1. Ensure you have Go installed on your machine. You can download it from [the Go website](https://golang.org/dl/).
 2. Clone this repository to your local machine.
 3. Navigate to the directory of the day you want to run, for example: `cd 1`.
-4. Run the solution using `go run main.go`.
+4. Run the solution using `go run main.go "path to input.txt"`.
 
 ### Why Go?
 
