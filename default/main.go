@@ -12,7 +12,7 @@ func main() {
 	start := time.Now()
 
 	// read file
-	readFile, err := os.Open(`.\1\input.txt`)
+	readFile, err := os.Open(os.Args[1])
 
 	// if error
 	if err != nil {
