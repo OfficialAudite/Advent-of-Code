@@ -11,7 +11,7 @@ import (
 
 func main() {
 	start := time.Now()
-	readFile, err := os.Open(`.\2023\2\input.txt`)
+	readFile, err := os.Open(os.Args[1])
 
 	if err != nil {
 		fmt.Println(err)
