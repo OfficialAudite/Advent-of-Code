@@ -6,9 +6,11 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
+	start := time.Now()
 	readFile, err := os.Open(`.\2023\2\input.txt`)
 
 	if err != nil {
@@ -122,4 +124,6 @@ func main() {
 	fmt.Println("Sum part 1:", sum_p1)
 	fmt.Println("Sum part 2:", sum_p2)
 	readFile.Close()
+	duration := time.Since(start)
+	fmt.Println(duration)
 }
