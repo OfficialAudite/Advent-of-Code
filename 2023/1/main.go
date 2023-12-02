@@ -36,7 +36,7 @@ func regexToNumber(s string) string {
 func main() {
 	start := time.Now()
 
-	readFile, err := os.Open(`.\2023\1\input.txt`)
+	readFile, err := os.Open(os.Args[1])
 
 	if err != nil {
 		fmt.Println(err)
