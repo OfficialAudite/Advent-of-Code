@@ -120,7 +120,6 @@ func main() {
 		sum_p2 += v
 	}
 
-	fmt.Println("Current possible games part 1:", possibleGames)
 	fmt.Println("Sum part 1:", sum_p1)
 	fmt.Println("Sum part 2:", sum_p2)
 	readFile.Close()
