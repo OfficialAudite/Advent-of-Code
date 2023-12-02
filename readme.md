@@ -1,4 +1,4 @@
-# Advent of Code Solutions in Go
+# 🎄 Advent of Code Solutions in Go 🎄
 
 ## Introduction
 
@@ -37,4 +37,4 @@ I chose Go for several reasons:
 
 Feel free to explore, use, or contribute to these solutions! If you have any improvements or alternative solutions, I would love to see them. Please create a pull request or open an issue.
 
-Happy Coding and Happy Holidays!
+🎄 Happy Coding and Happy Holidays! 🎄
