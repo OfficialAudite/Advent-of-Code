@@ -22,6 +22,9 @@ func main() {
 	// scan file
 	fileScanner := bufio.NewScanner(readFile)
 
+	// close file
+	defer readFile.Close()
+
 	// split file
 	fileScanner.Split(bufio.ScanLines)
 
@@ -34,9 +37,6 @@ func main() {
 		// print line
 		fmt.Println(line)
 	}
-
-	// close file
-	readFile.Close()
 
 	// print time
 	duration := time.Since(start)
