@@ -21,11 +21,6 @@ type symbol struct {
 	row      int
 }
 
-type rowMatches struct {
-	row    int
-	number int
-}
-
 var numbers []point
 var symbols []symbol
 var partNumbers_p1 []int
