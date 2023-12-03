@@ -10,7 +10,7 @@ I chose to use Go (Golang) for these challenges. Go, with its simplicity, effici
 
 This repository is organized as follows:
 
-- Each day's challenge is in a separate directory, named `1`, `2`, etc.
+- Each day's challenge is in a separate directory, named `day1`, `day2`, etc.
 - Inside each day's directory, you'll find:
   - A `main.go` file containing the solution.
 - Additionally, there's a `default` directory for common functions used across multiple puzzles and a template that i use trough different days.
