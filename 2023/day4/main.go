@@ -18,6 +18,12 @@ func contains(slice []int, val int) bool {
 	return false
 }
 
+type card struct {
+	cardId         int
+	winningNumbers []int
+	numbersOnCard  []int
+}
+
 func main() {
 	start := time.Now()
 
@@ -32,11 +38,17 @@ func main() {
 	fileScanner.Split(bufio.ScanLines)
 
 	totalPoints := 0
+	cards := []card{}
+
 	for fileScanner.Scan() {
 		line := fileScanner.Text()
 
 		winningNumbers := []int{}
 		numbersOnCard := []int{}
+		cardId := 0
+
+		// card id
+		fmt.Sscanf(line, "Card %d", &cardId)
 
 		lineSplited := strings.Split(line, "|")
 		cardNumbersBefore := strings.Fields(strings.Split(lineSplited[0], ":")[1])
@@ -72,9 +84,38 @@ func main() {
 			}
 		}
 		totalPoints += points
+
+		cards = append(cards, card{cardId, winningNumbers, numbersOnCard})
+	}
+
+	cardCounts := make(map[int]int)
+	for _, c := range cards {
+		cardCounts[c.cardId] = 1
+	}
+
+	for i := 0; i < len(cards); i++ {
+		matches := 0
+		for _, num := range cards[i].numbersOnCard {
+			if contains(cards[i].winningNumbers, num) {
+				matches++
+			}
+		}
+
+		for j := 1; j <= matches; j++ {
+			nextCardId := cards[i].cardId + j
+			if nextCardId <= len(cards) {
+				cardCounts[nextCardId] += cardCounts[cards[i].cardId]
+			}
+		}
+	}
+
+	totalCards := 0
+	for _, count := range cardCounts {
+		totalCards += count
 	}
 
 	fmt.Println("Total Points P1:", totalPoints)
+	fmt.Println("Total Cards P2:", totalCards)
 	duration := time.Since(start)
 	fmt.Println("Duration:", duration)
 }
