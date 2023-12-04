@@ -72,7 +72,6 @@ func main() {
 			numbersOnCard = append(numbersOnCard, number)
 		}
 
-		// part 1
 		points := 0
 		for _, numberOnCard := range numbersOnCard {
 			if contains(winningNumbers, numberOnCard) {
