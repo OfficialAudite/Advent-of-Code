@@ -11,6 +11,12 @@ func main() {
 	// start timer
 	start := time.Now()
 
+	// if no input file
+	if len(os.Args) < 2 {
+		fmt.Println("Please specify an input file.")
+		return
+	}
+
 	// read file
 	readFile, err := os.Open(os.Args[1])
 
