@@ -8,43 +8,45 @@ import (
 )
 
 func main() {
-	// start timer
+	// Start timer
 	start := time.Now()
 
-	// if no input file
+	// Check for input file
 	if len(os.Args) < 2 {
 		fmt.Println("Please specify an input file.")
 		return
 	}
 
-	// read file
+	// Open the input file
 	readFile, err := os.Open(os.Args[1])
-
-	// if error
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error opening file:", err)
+		return
 	}
+	defer func() {
+		if err := readFile.Close(); err != nil {
+			fmt.Println("Error closing file:", err)
+		}
+	}()
 
-	// scan file
+	// Scan the file
 	fileScanner := bufio.NewScanner(readFile)
-
-	// close file
-	defer readFile.Close()
-
-	// split file
-	fileScanner.Split(bufio.ScanLines)
-
-	// for each line
 	for fileScanner.Scan() {
-
-		// read line
 		line := fileScanner.Text()
-
-		// print line
-		fmt.Println(line)
+		processLine(line) // Placeholder for your line processing logic
 	}
 
-	// print time
+	// Check for scanning errors
+	if err := fileScanner.Err(); err != nil {
+		fmt.Println("Error reading file:", err)
+	}
+
+	// Print execution time
 	duration := time.Since(start)
-	fmt.Println(duration)
+	fmt.Printf("Execution time: %s\n", duration)
+}
+
+// processLine processes a single line of input
+func processLine(line string) {
+	fmt.Println(line)
 }
